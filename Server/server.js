@@ -1,8 +1,12 @@
 console.log('in server');
 
+const contentDisposition = require('content-disposition');
 const express = require ('express');
 const app = express(); 
 const PORT = 5000;
+const mathProblems = [];
+const mathCalculations = [];
+
 
 app.use(express.static('./server/public'));
 app.use(express.json());
@@ -18,5 +22,7 @@ app.post('/answers', (req,res) =>{
     
 })
 app.listen(PORT, function () {
+
+    
     })
 
