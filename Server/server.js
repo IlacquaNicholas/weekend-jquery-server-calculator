@@ -4,7 +4,7 @@ const contentDisposition = require('content-disposition');
 const express = require ('express');
 const app = express(); 
 const PORT = 5000;
-const mathProblems = [];
+const mathProblems = {data:[]};
 
 
 app.use(express.static('./server/public'));
@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/answers', (req,res) =>{
     console.log('in the get/anwsers');
-    
     res.send(mathProblems);
     
 })
@@ -21,7 +20,8 @@ app.get('/answers', (req,res) =>{
 function calculations (calculation){
 for (let number of calculation){
   if (number.mathSymbol === '+'){
- Number(number.results) = Number(number.numberOne) + Number(number.numberTwo)
+   number.results = Number(number.numberOne) + Number(number.numberTwo)
+      return number.results
 //  }else if (number.mathSymbol=== '-') {
 //      return Number(number.numberOne - number.numberTwo)
 //   } else if (number.mathSymbol === '*'){
@@ -37,8 +37,8 @@ for (let number of calculation){
 
 app.post('/answers', (req,res) =>{
     console.log('in the post/answers', req.body);
-    mathProblems.push(req.body);
-    calculations(mathProblems);
+    mathProblems.data.push(req.body);
+    calculations(mathProblems.data);
     res.sendStatus(200);
 })
 

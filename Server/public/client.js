@@ -1,11 +1,12 @@
 $(document).ready(onReady);
-
+let mathSymbol;
+let number = 0;
 function onReady (){
     $('#equals').on('click', postAnswer)
     $('#addition').on('click', addOnClick)
 
 }
-let mathSymbol;
+
 function addOnClick (){
     mathSymbol = '+'
 }
@@ -17,7 +18,7 @@ let mathEquationSend = {
     numberOne: $('#numberOne').val(),
     mathSymbol: mathSymbol,
     numberTwo: $('#numberTwo').val(),
-    results: '0',
+    results: number
 } 
 $.ajax({
     method: 'POST', 
@@ -40,11 +41,15 @@ function getCalcutation (){
     }).then(function(response){
         let mathProblemsel = $('#mathProblems')
         mathProblemsel.empty();
-        for(let solution of response){
+        console.log(response);
+        
+        for(let solution of response.data){
             mathProblemsel.append(`
-            <li>${solution.numberOne} 
-                ${solution.mathSymbol}
-                ${solution.numberTwo}
+            <li>
+            ${solution.numberOne} 
+            ${solution.mathSymbol}
+            ${solution.numberTwo}
+            ${solution.results}
             </li>
               `)
         }
