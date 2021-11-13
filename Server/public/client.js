@@ -17,6 +17,7 @@ let mathEquationSend = {
     numberOne: $('#numberOne').val(),
     mathSymbol: mathSymbol,
     numberTwo: $('#numberTwo').val(),
+    results: '0',
 } 
 $.ajax({
     method: 'POST', 
