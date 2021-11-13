@@ -10,7 +10,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 
 ### project plan
-1. Get the server up and running. 
-2. Set up app.post and app.get in server.(basics)
+1. Get the server up and running. *
+2. Set up app.post and app.get in server.(basics)*
 3. set up HTML. 
 4. Start with the Ajax and the input fields and displaying them on the DOM. 
