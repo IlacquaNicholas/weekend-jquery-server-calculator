@@ -7,9 +7,16 @@ function onReady (){
     $('#subtraction').on('click', subtractionOnClick)
     $('#multiplication').on ('click',multiplyOnClick)
     $('#division').on('click',dividOnClick)
+    $('#clear').on('click', clearOnClick)
     // $('#clear').on('click', onClearButtonClick) coming back to this
 }
 
+function clearOnClick(){
+    $('#numberOne').val('')
+    $('#numberTwo').val('');
+
+
+}
 function addOnClick (){
     mathSymbol = '+';
     // console.log('in +');

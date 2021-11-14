@@ -36,7 +36,10 @@ function calculations(mathProblem){
         total.data = mathProblem.results = Number(mathProblem.numberOne) / Number(mathProblem.numberTwo)
         mathProblems.data.push(mathProblem)
     }
+    console.log(mathProblems);
+    
 }
+
 app.post('/answers', (req,res) =>{
     console.log('in the post/answers', req.body);
     calculations(req.body);
