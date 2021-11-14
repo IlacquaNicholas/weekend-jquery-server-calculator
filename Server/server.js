@@ -23,17 +23,20 @@ function calculations(mathProblem){
         mathProblem.results = Number(mathProblem.numberOne) + Number(mathProblem.numberTwo)
         total.data = mathProblem.results = Number(mathProblem.numberOne) + Number(mathProblem.numberTwo)
         mathProblems.data.push(mathProblem)
+    } else if (mathProblem.mathSymbol == '-') {
+        mathProblem.results = Number(mathProblem.numberOne) - Number(mathProblem.numberTwo)
+        total.data = mathProblem.results = Number(mathProblem.numberOne) - Number(mathProblem.numberTwo)
+        mathProblems.data.push(mathProblem)
+    } else if (mathProblem.mathSymbol == '*') {
+        mathProblem.results = Number(mathProblem.numberOne) * Number(mathProblem.numberTwo)
+        total.data = mathProblem.results = Number(mathProblem.numberOne) * Number(mathProblem.numberTwo)
+        mathProblems.data.push(mathProblem)
+    } else if (mathProblem.mathSymbol == '/') {
+        mathProblem.results = Number(mathProblem.numberOne) / Number(mathProblem.numberTwo)
+        total.data = mathProblem.results = Number(mathProblem.numberOne) / Number(mathProblem.numberTwo)
+        mathProblems.data.push(mathProblem)
     }
-//  }else if (number.mathSymbol=== '-') {
-//      return Number(number.numberOne - number.numberTwo)
-//   } else if (number.mathSymbol === '*'){
-//      return Number(number.numberOne * number.numberTwo)
-//   } else if (number.mathSymbol === '/') {
-//      return Number(number.numberOne / number.numberTwo)
-//  }
-// }
 }
-
 app.post('/answers', (req,res) =>{
     console.log('in the post/answers', req.body);
     calculations(req.body);

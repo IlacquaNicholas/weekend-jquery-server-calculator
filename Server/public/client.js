@@ -4,14 +4,32 @@ let number = 0;
 function onReady (){
     $('#equals').on('click', postAnswer)
     $('#addition').on('click', addOnClick)
-
+    $('#subtraction').on('click', subtractionOnClick)
+    $('#multiplication').on ('click',multiplyOnClick)
+    $('#division').on('click',dividOnClick)
+    // $('#clear').on('click', onClearButtonClick) coming back to this
 }
 
 function addOnClick (){
-    mathSymbol = '+'
+    mathSymbol = '+';
+    // console.log('in +');
+    
 }
-
-
+function subtractionOnClick(){
+    mathSymbol = "-";
+    // console.log('in-');
+    
+}
+function multiplyOnClick (){
+    mathSymbol = "*";
+    // console.log('in *');
+    
+}
+function dividOnClick(){
+    mathSymbol = '/';
+    // console.log('in /');
+    
+}
 function postAnswer (){
 // console.log('postAnswer is working');
 let mathEquationSend = {
@@ -53,8 +71,9 @@ function getCalcutation (){
             ${solution.numberOne} 
             ${solution.mathSymbol}
             ${solution.numberTwo}
+            =
             ${solution.results}
             </li>
-              `)
-        }
+        `)
+    }
 })}
