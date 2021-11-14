@@ -25,9 +25,11 @@ $.ajax({
     url: '/answers', 
     data: mathEquationSend
 }).then (function(response){
-    // $('#numberOne').val('');
-    // $('#numberTwo').val('');
-    $('#total').empty();
+    console.log(response);
+    
+    $('#numberOne').val('');
+    $('#numberTwo').val('');
+    $('#Total').empty();
     $('#Total').append(`Total: ${response.data}`);
     getCalcutation()
 }).catch (function (error){

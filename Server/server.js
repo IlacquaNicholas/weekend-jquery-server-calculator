@@ -5,6 +5,7 @@ const express = require ('express');
 const app = express(); 
 const PORT = 5000;
 const mathProblems = {data:[]};
+let total = {data:0}
 
 
 app.use(express.static('./server/public'));
@@ -18,11 +19,11 @@ app.get('/answers', (req,res) =>{
 })
 
 function calculations(mathProblem){
-    for (let number of mathProblem){
-  if (number.mathSymbol === '+'){
-   number.results = Number(number.numberOne) + Number(number.numberTwo)
-      return Number(number.results)
-      } 
+    if (mathProblem.mathSymbol == '+'){
+        mathProblem.results = Number(mathProblem.numberOne) + Number(mathProblem.numberTwo)
+        total.data = mathProblem.results = Number(mathProblem.numberOne) + Number(mathProblem.numberTwo)
+        mathProblems.data.push(mathProblem)
+    }
 //  }else if (number.mathSymbol=== '-') {
 //      return Number(number.numberOne - number.numberTwo)
 //   } else if (number.mathSymbol === '*'){
@@ -31,13 +32,12 @@ function calculations(mathProblem){
 //      return Number(number.numberOne / number.numberTwo)
 //  }
 // }
-}}
+}
 
 app.post('/answers', (req,res) =>{
     console.log('in the post/answers', req.body);
-    mathProblems.data.push(req.body);
-    calculations(mathProblems.data);
-    res.sendStatus(200);
+    calculations(req.body);
+    res.send(total);
 })
 
 
