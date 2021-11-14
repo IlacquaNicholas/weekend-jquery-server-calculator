@@ -25,8 +25,10 @@ $.ajax({
     url: '/answers', 
     data: mathEquationSend
 }).then (function(response){
-    $('#numberOne').val(''),
-    $('#numberTwo').val('')
+    // $('#numberOne').val('');
+    // $('#numberTwo').val('');
+    $('#total').empty();
+    $('#Total').append(`Total: ${response.data}`);
     getCalcutation()
 }).catch (function (error){
     console.log('not working');

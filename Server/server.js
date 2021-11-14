@@ -17,11 +17,12 @@ app.get('/answers', (req,res) =>{
     
 })
 
-function calculations (calculation){
-for (let number of calculation){
+function calculations(mathProblem){
+    for (let number of mathProblem){
   if (number.mathSymbol === '+'){
    number.results = Number(number.numberOne) + Number(number.numberTwo)
-      return number.results
+      return Number(number.results)
+      } 
 //  }else if (number.mathSymbol=== '-') {
 //      return Number(number.numberOne - number.numberTwo)
 //   } else if (number.mathSymbol === '*'){
@@ -30,10 +31,7 @@ for (let number of calculation){
 //      return Number(number.numberOne / number.numberTwo)
 //  }
 // }
-
-}
-}
-}
+}}
 
 app.post('/answers', (req,res) =>{
     console.log('in the post/answers', req.body);
